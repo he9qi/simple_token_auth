@@ -7,11 +7,13 @@ require "simple_token_authorization/version"
 Gem::Specification.new do |s|
   s.name        = "simple_token_authorization"
   s.version     = SimpleTokenAuthorization::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SimpleTokenAuthorization."
-  s.description = "TODO: Description of SimpleTokenAuthorization."
+  s.authors     = ["Lin He"]
+  s.email       = ["he9lin@gmail.com"]
+  s.homepage    = "https://bitbucket.org/he9lin/simple_token_authorization"
+  s.summary     = "Simple and safe token authentication library that uses Rails' `authenticate_or_request_with_http_token` method
+"
+  s.description = "Simple and safe token authentication library that uses Rails' `authenticate_or_request_with_http_token` method
+"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
