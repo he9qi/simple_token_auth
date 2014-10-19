@@ -21,7 +21,7 @@ module SimpleTokenAuthorization
     private
 
     def authenticate_from_token!(scope_name)
-      scope_class = scope_name.capitalize.constantize
+      scope_class = scope_name.camelize.constantize
       authenticate_or_request_with_http_token do |token, options|
         return false if token.blank?
         scope, token = *find_scope(scope_class, token)
