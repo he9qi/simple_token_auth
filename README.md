@@ -8,8 +8,8 @@ First, ensure you already have a model to apply token authentication to, for exa
 
 ### Setting up things
 
-1. Run `bin/rails g simple_token_authentication:install` to create the initializer.
-2. Run `bin/rails g simple_token_authentication user` to add token authentication field and make the user token authenticatable
+1. Run `bin/rails g simple_token_authorization:install` to create the initializer.
+2. Run `bin/rails g simple_token_authorization user` to add token authentication field and make the user token authenticatable
 
 The initializer likes like this:
 
