@@ -18,6 +18,10 @@ module SimpleTokenAuth
       api_key.access_token
     end
 
+    def renew_api_key
+      api_key.renew!
+    end
+
     private
 
     def ensure_api_key

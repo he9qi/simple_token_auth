@@ -6,6 +6,7 @@ SimpleTokenAuth.configure do |config|
   end
 
   config.after_authenticated_strategy = -> (scope, controller) do
+    # Devise way of after authenticated a user
     controller.sign_in scope, {}
   end
 

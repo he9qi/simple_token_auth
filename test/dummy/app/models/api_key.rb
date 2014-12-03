@@ -6,6 +6,12 @@ class ApiKey < ActiveRecord::Base
     expired_at < Time.now.utc
   end
 
+  def renew!
+    generate_access_token
+    set_expiry_date
+    save!
+  end
+
   private
 
   def set_expiry_date

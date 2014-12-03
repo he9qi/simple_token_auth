@@ -26,6 +26,9 @@ SimpleTokenAuth.configure do |config|
     # If you are using Devise, this will set up `current_user` for us
     controller.sign_in scope, store: false
   end
+
+  # API key expires in some time
+  config.expire_in = 3.hours
 end
 ```
 
