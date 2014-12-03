@@ -1,6 +1,6 @@
 # SimpleTokenAuth
 
-SimpleTokenAuth is similar to `https://github.com/gonzalo-bulnes/simple_token_authentication`, but it uses Rails' `authenticate_or_request_with_http_token` method like it mentioned here: http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails. and it plays nice with authentication libraries like Devise.
+SimpleTokenAuth is similar to [`simple_token_authentication`](https://github.com/gonzalo-bulnes/simple_token_authentication). One of the differences is that it uses Rails' `authenticate_or_request_with_http_token` method for authentication like it mentioned [here](http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails). and it plays nice with authentication libraries like Devise. See usage examples below.
 
 ## Usage
 
@@ -36,13 +36,28 @@ end
 
 Now authenticate the user with token!
 
-```
+```ruby
 class ApplicationController
   include SimpleTokenAuth::AuthenticateWithToken
 end
 
 class UserController < ApplicationController
   prepend_before_action :authenticate_user_from_token!
+end
+```
+
+### Renew API key
+
+We should renew api key when user logs in via SessionsController for example
+
+```ruby
+class Users::SessionsController < Devise::SessionsController
+  def create
+    self.resource = warden.authenticate!(auth_options)
+    resource.renew_api_key
+    sign_in(resource_name, resource, store: false)
+    render json: resource
+  end
 end
 ```
 
