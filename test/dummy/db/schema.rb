@@ -11,14 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015201105) do
+ActiveRecord::Schema.define(version: 20141203034209) do
+
+  create_table "api_keys", force: true do |t|
+    t.integer  "token_authenticatable_id",   null: false
+    t.string   "token_authenticatable_type", null: false
+    t.string   "access_token",               null: false
+    t.datetime "expired_at"
+    t.datetime "created_at"
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "authentication_token"
   end
-
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
 
 end

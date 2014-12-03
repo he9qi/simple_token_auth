@@ -1,4 +1,4 @@
-class CreateApiKeys < ActiveRecord::Migration
+class SimpleTokenAuthMigration < ActiveRecord::Migration
   def change
     create_table :api_keys do |t|
       t.integer :token_authenticatable_id,  null: false

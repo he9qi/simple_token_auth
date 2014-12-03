@@ -24,9 +24,17 @@ module SimpleTokenAuth
       scope_class = scope_name.camelize.constantize
       authenticate_or_request_with_http_token do |token, options|
         return false if token.blank?
-        scope, token = *find_scope(scope_class, token)
-        authenticated = scope && compare_token(scope.authentication_token, token)
+
+        scope, token  = *find_scope(scope_class, token)
+        authenticated = false
+
+        if scope
+          api_key = scope.api_key
+          authenticated = api_key && !api_key.expired? && compare_token(api_key.access_token, token)
+        end
+
         after_authenticated(scope, self) if authenticated
+
         authenticated
       end
     end
