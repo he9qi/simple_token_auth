@@ -1,6 +1,6 @@
 # SimpleTokenAuth
 
-SimpleTokenAuth is mostly similar to `https://github.com/gonzalo-bulnes/simple_token_authentication`, but it uses Rails' `authenticate_or_request_with_http_token` method like it mentioned here: http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails.
+SimpleTokenAuth is similar to `https://github.com/gonzalo-bulnes/simple_token_authentication`, but it uses Rails' `authenticate_or_request_with_http_token` method like it mentioned here: http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails. and it plays nice with authentication libraries like Devise.
 
 ## Usage
 
@@ -46,6 +46,6 @@ class UserController < ApplicationController
 end
 ```
 
-## TODO
+## Licence
 
-More test coverage (add integration tests)
+SimpleTokenAuth is released under the MIT license. See LICENSE for details.
