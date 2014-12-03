@@ -1,7 +1,7 @@
-require_relative 'simple_token_authorization/configuration'
-require_relative 'simple_token_authorization/helpers'
+require_relative 'simple_token_auth/configuration'
+require_relative 'simple_token_auth/helpers'
 
-module SimpleTokenAuthorization
+module SimpleTokenAuth
   extend Configuration
   extend Helpers
 
@@ -24,5 +24,5 @@ module SimpleTokenAuthorization
   end
 end
 
-require_relative 'simple_token_authorization/authenticate_with_token'
-require_relative 'simple_token_authorization/token_authenticatable'
+require_relative 'simple_token_auth/authenticate_with_token'
+require_relative 'simple_token_auth/token_authenticatable'

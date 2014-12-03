@@ -1,6 +1,6 @@
 # https://github.com/plataformatec/devise
 #
-module SimpleTokenAuthorization
+module SimpleTokenAuth
   module Helpers
     # Generate a friendly string randomly to be used as token.
     def friendly_token

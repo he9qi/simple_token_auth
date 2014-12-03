@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_token_authorization (0.0.1)
+    simple_token_auth (0.0.2)
       rails (~> 4.1.6)
 
 GEM
@@ -83,5 +83,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  simple_token_authorization!
+  simple_token_auth!
   sqlite3

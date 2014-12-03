@@ -1,6 +1,6 @@
-# SimpleTokenAuthorization
+# SimpleTokenAuth
 
-SimpleTokenAuthorization is mostly similar to `https://github.com/gonzalo-bulnes/simple_token_authentication`, but it uses Rails' `authenticate_or_request_with_http_token` method like it mentioned here: http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails.
+SimpleTokenAuth is mostly similar to `https://github.com/gonzalo-bulnes/simple_token_authentication`, but it uses Rails' `authenticate_or_request_with_http_token` method like it mentioned here: http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails.
 
 ## Usage
 
@@ -8,13 +8,13 @@ First, ensure you already have a model to apply token authentication to, for exa
 
 ### Setting up things
 
-1. Run `bin/rails g simple_token_authorization:install` to create the initializer.
-2. Run `bin/rails g simple_token_authorization user` to add token authentication field and make the user token authenticatable
+1. Run `bin/rails g simple_token_auth:install` to create the initializer.
+2. Run `bin/rails g simple_token_auth user` to add token authentication field and make the user token authenticatable
 
 The initializer likes like this:
 
 ```ruby
-SimpleTokenAuthorization.configure do |config|
+SimpleTokenAuth.configure do |config|
   # Make sure `find_scope_strategy` always return a tuple [scope, token]
   config.find_scope_strategy = -> (scope_class, token) do
     field, token = token.split('.')
@@ -35,7 +35,7 @@ Now authenticate the user with token!
 
 ```
 class ApplicationController
-  include SimpleTokenAuthorization::AuthenticateWithToken
+  include SimpleTokenAuth::AuthenticateWithToken
 end
 
 class UserController < ApplicationController

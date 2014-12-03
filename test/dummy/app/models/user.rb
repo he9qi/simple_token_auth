@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  include SimpleTokenAuthorization::TokenAuthenticatable
+  include SimpleTokenAuth::TokenAuthenticatable
 end

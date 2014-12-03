@@ -1,14 +1,14 @@
 # Usage:
 #
 # class ApplicationController
-#   include SimpleTokenAuthorization::AuthenticateWithToken
+#   include SimpleTokenAuth::AuthenticateWithToken
 # end
 #
 # class UserController < ApplicationController
 #   prepend_before_action :authenticate_user_from_token!
 # end
 #
-module SimpleTokenAuthorization
+module SimpleTokenAuth
   module AuthenticateWithToken
     def method_missing(method, *args, &block)
       if m = method.to_s.match(/authenticate_(.+)_from_token!/)
@@ -32,15 +32,15 @@ module SimpleTokenAuthorization
     end
 
     def after_authenticated(*args)
-      SimpleTokenAuthorization.after_authenticated(*args)
+      SimpleTokenAuth.after_authenticated(*args)
     end
 
     def find_scope(*args)
-      SimpleTokenAuthorization.find_scope(*args)
+      SimpleTokenAuth.find_scope(*args)
     end
 
     def compare_token(a, b)
-      SimpleTokenAuthorization.compare_token(a, b)
+      SimpleTokenAuth.compare_token(a, b)
     end
   end
 end
